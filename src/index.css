@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 97%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 216 65% 14%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 97%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 14% 93%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 38 92% 50%;
+    --radius: 0.875rem;
+    
+    --navy: #0B1F3A;
+    --off-white: #F6F7F9;
+    --amber: #F59E0B;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+  
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+}
+
+@layer components {
+  .section-navy {
+    background-color: var(--navy);
+    color: white;
+  }
+  
+  .section-offwhite {
+    background-color: var(--off-white);
+    color: var(--text-primary);
+  }
+  
+  .text-amber {
+    color: var(--amber);
+  }
+  
+  .bg-amber {
+    background-color: var(--amber);
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-[14px] font-semibold transition-all duration-200;
+    background-color: var(--amber);
+    color: var(--text-primary);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    filter: brightness(1.05);
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-[14px] font-semibold border-2 border-white/30 text-white transition-all duration-200;
+  }
+  
+  .btn-outline:hover {
+    @apply border-white/60;
+    transform: translateY(-2px);
+  }
+  
+  .card-service {
+    @apply rounded-[28px] p-8 transition-all duration-300;
+    background: white;
+    box-shadow: 0 18px 40px rgba(11,31,58,0.08);
+  }
+  
+  .card-service:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 50px rgba(11,31,58,0.12);
+  }
+  
+  .label-mono {
+    @apply text-xs font-medium uppercase tracking-[0.12em];
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--text-secondary);
+  }
+  
+  .grain-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-paused {
+    animation-play-state: paused;
+  }
+}
